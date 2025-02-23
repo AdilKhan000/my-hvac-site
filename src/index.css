@@ -1,0 +1,157 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+  margin: 0; /* Remove default margin */
+}
+
+/* Ensure full-width sections for header, navbar, footer */
+.navbar,
+header,
+footer {
+  margin: 0;
+  padding: 0;
+}
+
+/* Use Bootstrap’s container for main content spacing */
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Navbar Logo: Round and cropped */
+.logo-img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
+/* Product Images: Fixed height with cropping */
+.card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Product Card: Fade effect on hover for the entire card */
+.product-card {
+  transition: box-shadow 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+}
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  opacity: 0.95;
+}
+
+/* Modal Fade-In */
+.modal-fade-in {
+  animation: fadeIn 0.5s;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Testimonials: Static images (no zoom) */
+.testimonial-img {
+  object-fit: cover;
+}
+
+/* About Section: Container for image with a fade overlay */
+.about-img-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  max-width: 90%;
+  margin: 0 auto;
+  margin-top: -20px; /* Slight overlap effect */
+}
+.about-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.about-img-container::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+  background: linear-gradient(to top, rgba(248, 249, 250, 1), rgba(248, 249, 250, 0));
+}
+
+/* Chat widget styles */
+.chat-widget {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  z-index: 1050;
+}
+.chat-card {
+  max-height: 400px;
+  overflow: auto;
+}
+
+/* Chat Toggle Button: Cloud Icon with styling */
+.chat-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #0d6efd;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+.chat-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Chat Attention Message: A friendly, cloud-like speech bubble */
+.chat-attention-message {
+  position: fixed;
+  bottom: 90px;
+  right: 90px;
+  background-color: #ffc107;
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  font-size: 0.9rem;
+  opacity: 0;
+  animation: fadeInMessage 0.5s forwards;
+}
+@keyframes fadeInMessage {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile adjustments */
+@media (max-width: 576px) {
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .chat-toggle {
+    width: 50px;
+    height: 50px;
+  }
+  .chat-widget {
+    width: 90%;
+    right: 5%;
+    bottom: 80px;
+  }
+  .chat-attention-message {
+    right: 70px;
+    font-size: 0.8rem;
+  }
+}
